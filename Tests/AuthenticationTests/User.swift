@@ -1,16 +1,16 @@
 import Authentication
 import Async
-import FluentSQLite
+import FluentMySQL
 import Foundation
 
 extension DatabaseIdentifier {
-    static var test: DatabaseIdentifier<SQLiteDatabase> {
+    static var test: DatabaseIdentifier<MySQLDatabase> {
         return .init("test")
     }
 }
 
 final class User: Model, Migration, BasicAuthenticatable, SessionAuthenticatable {
-    typealias Database = SQLiteDatabase
+    typealias Database = MySQLDatabase
     typealias ID = UUID
     
     static let idKey: IDKey = \User.id

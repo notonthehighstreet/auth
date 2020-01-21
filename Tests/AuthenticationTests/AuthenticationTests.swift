@@ -1,14 +1,15 @@
 import Authentication
 import Dispatch
-import FluentSQLite
+import FluentMySQL
 import Vapor
 import XCTest
 
 class AuthenticationTests: XCTestCase {
     func testPassword() throws {
         let queue = MultiThreadedEventLoopGroup(numberOfThreads: 1)
-        
-        let database = try SQLiteDatabase(storage: .memory)
+
+        let config = MySQLDatabaseConfig(
+        let database = try MySQLDatabase(config: <#T##MySQLDatabaseConfig#>)
         let conn = try database.newConnection(on: queue).wait()
 
         try User.prepare(on: conn).wait()

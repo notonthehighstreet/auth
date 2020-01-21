@@ -25,11 +25,11 @@ let package = Package(
         // 💧 A server-side Swift web framework.
         .package(url: "https://github.com/vapor/vapor.git", from: "3.2.0"),
         
-        // Fluent SQLite, only for testing.
-        .package(url: "https://github.com/vapor/fluent-sqlite.git", from: "3.0.0"),
+        // Fluent MySQL, only for testing.
+//        .package(url: "https://github.com/vapor/fluent-mysql-driver.git", from: "3.1.0"),
     ],
     targets: [
         .target(name: "Authentication", dependencies: ["Async", "Bits", "Crypto", "Debugging", "Fluent", "HTTP", "Service", "Vapor"]),
-        .testTarget(name: "AuthenticationTests", dependencies: ["Authentication", "FluentSQLite", "Vapor"]),
+//        .testTarget(name: "AuthenticationTests", dependencies: ["Authentication", "FluentMySQL", "Vapor"]),
     ]
 )
